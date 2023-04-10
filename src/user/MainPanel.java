@@ -6,7 +6,7 @@ import javax.swing.*;
 public class MainPanel extends JSplitPane{
 
     JComponent mainMenuPanel = new JPanel();
-    JComponent gamePanel = new JPanel();
+    GamePanel gamePanel = new GamePanel();
 
     public MainPanel(){
         setOrientation(HORIZONTAL_SPLIT);
@@ -15,8 +15,7 @@ public class MainPanel extends JSplitPane{
         setOneTouchExpandable(false);
         setContinuousLayout(true);
 
-        mainMenuPanel.add(new JLabel("Menu Panel"));
-        gamePanel.add(new JLabel("Game Panel"));
+        mainMenuPanel.add(new JLabel("Main Menu Panel"));
 
         setLeftComponent(mainMenuPanel);
         setRightComponent(gamePanel);

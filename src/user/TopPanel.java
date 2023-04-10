@@ -11,31 +11,30 @@ public class TopPanel extends JPanel{
                     //JComponent quickStatsPanel,
                     JComponent gameMenuToggle
                     ){
+
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
-        gbc.weightx=1;
+        gbc.gridy=0;//starts at first row
 
-        //gbc.gridx=0;
-        gbc.anchor=GridBagConstraints.NORTHWEST;
-        //gbc.anchor=GridBagConstraints.LINE_START;
-        add(mainMenuToggle,gbc);
-        gbc.anchor=GridBagConstraints.CENTER;
+        gbc.gridx=0;//starts at first column
+        gbc.anchor=GridBagConstraints.LINE_START;//aligns to left of allotted space
+
+        add(mainMenuToggle,gbc);//button that opens or closes main menu
+
+        gbc.gridx=GridBagConstraints.RELATIVE;//starts at column next to previous component
+        gbc.anchor=GridBagConstraints.CENTER;//aligns to center of allotted space
+        gbc.weightx=1;//allots a portion of any unused space to component
 
         JLabel titleLabel=new JLabel("TITLE GOES HERE");
-        //gbc.gridx=1;
-        gbc.fill=GridBagConstraints.HORIZONTAL;
         add(titleLabel,gbc);
-        gbc.fill=GridBagConstraints.NONE;
 
-        /*
-        //gbc.gridx=2;
-        gbc.gridwidth=GridBagConstraints.RELATIVE;
+        gbc.anchor=GridBagConstraints.LINE_END;//aligns to right of allotted space
+        gbc.weightx=0;//takes away any unused space from component
+        gbc.gridwidth=GridBagConstraints.RELATIVE;//ends at column before final component
+
+        JComponent quickStatsPanel=new JLabel("money xxx arcana yyy health zzz");
         add(quickStatsPanel,gbc);
-        */
 
-        //gbc.gridx=3;
-        gbc.gridwidth=GridBagConstraints.REMAINDER;
-        gbc.anchor=GridBagConstraints.NORTHEAST;
         add(gameMenuToggle,gbc);
 
     }
