@@ -1,8 +1,12 @@
+package user;
+
+import user.MainPanel;
+
 import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-class MainWindow extends JFrame implements ActionListener {
+public class MainWindow extends JFrame implements ActionListener {
 
     static final double MAX_WIDTH = 0.1;
     static final double MIN_WIDTH = 0;
