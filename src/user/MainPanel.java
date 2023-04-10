@@ -5,8 +5,8 @@ import javax.swing.*;
 
 public class MainPanel extends JSplitPane{
 
-    static JComponent mainMenuPanel = new JPanel();
-    static JComponent gamePanel = new JPanel();
+    JComponent mainMenuPanel = new JPanel();
+    JComponent gamePanel = new JPanel();
 
     public MainPanel(){
         setOrientation(HORIZONTAL_SPLIT);
