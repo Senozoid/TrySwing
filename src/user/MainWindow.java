@@ -6,16 +6,13 @@ import java.awt.event.*;
 
 public class MainWindow extends JFrame implements ActionListener {
 
-    static final String MAIN_MENU_TEXT = "Main Menu";
-    static final String GAME_MENU_TEXT = "Game Menu";
-
     GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     TopPanel topPanel;
     MainPanel mainPanel = new MainPanel();
     GamePanel gamePanel = mainPanel.gamePanel;
 
-    JButton mainMenuToggle = new JButton(MAIN_MENU_TEXT);
-    JButton gameMenuToggle = new JButton(GAME_MENU_TEXT);
+    JButton mainMenuToggle = new JButton("Main Menu");
+    JButton gameMenuToggle = new JButton("Game Menu");
 
     public MainWindow(){
 
@@ -28,6 +25,7 @@ public class MainWindow extends JFrame implements ActionListener {
         add(topPanel, BorderLayout.NORTH);
         add(mainPanel, BorderLayout.CENTER);
 
+        this.setUndecorated(true);
         device.setFullScreenWindow(this);
         setVisible(true);
         mainMenuToggle.doClick();
@@ -37,7 +35,6 @@ public class MainWindow extends JFrame implements ActionListener {
     public void actionPerformed(ActionEvent event){
 
         if(event.getSource()== mainMenuToggle) {
-            
             if (isMainMenuOn()) {
                 mainPanel.setDividerLocation(getMainMenuMin());
             } else {

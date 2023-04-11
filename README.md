@@ -1,7 +1,17 @@
+## Structure
+* MainWindow
+    * TopPanel
+    * MainPanel
+      * MainMenuPanel
+      * GamePanel
+        * Display
+        * GameMenuPanel
+        
+
 ## Issue type: Glitch
 ### Description
 Sometimes, the menus may resize to undesirable widths.
 ### How to fix
-Click the menu button.
+Click the menu button once to reset.
 ### How to avoid
-Do not resize too often, and keep the game menu open when opening the main menu.
+Keep the game menu open while toggling the main menu.
