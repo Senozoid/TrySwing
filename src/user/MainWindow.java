@@ -28,7 +28,6 @@ public class MainWindow extends JFrame implements ActionListener {
         this.setUndecorated(true);
         device.setFullScreenWindow(this);
         setVisible(true);
-        mainMenuToggle.doClick();
 
     }
 
@@ -61,7 +60,7 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     private boolean isMainMenuOn(){
-        return mainPanel.getDividerLocation() == getMainMenuMax();
+        return mainPanel.getDividerLocation() >= getMainMenuMax();
     }
 
     private int getGameMenuMax(){
@@ -73,7 +72,7 @@ public class MainWindow extends JFrame implements ActionListener {
     }
 
     private boolean isGameMenuOn(){
-        return gamePanel.getDividerLocation() == getGameMenuMax();
+        return gamePanel.getDividerLocation() <= getGameMenuMax();
     }
 
 }

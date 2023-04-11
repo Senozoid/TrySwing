@@ -11,7 +11,7 @@ public class MainPanel extends JSplitPane{
     public MainPanel(){
         setOrientation(HORIZONTAL_SPLIT);
         setDividerSize(1);
-        setResizeWeight(1);
+        setResizeWeight(0);
         setOneTouchExpandable(false);
         setContinuousLayout(true);
 
