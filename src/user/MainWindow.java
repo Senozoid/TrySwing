@@ -6,81 +6,77 @@ import java.awt.event.*;
 
 public class MainWindow extends JFrame implements ActionListener {
 
-    static final double MAIN_MENU_MAX_WIDTH = 0.2;
-    static final int MAIN_MENU_MIN_WIDTH = 0;
-    static final double GAME_MENU_MAX_WIDTH = 0.75;
-    static final int GAME_MENU_MIN_WIDTH = 1;
-    static final String OPEN_MAIN_MENU = ">>>";
-    static final String CLOSE_MAIN_MENU = "<<<";
-    static final String OPEN_GAME_MENU = CLOSE_MAIN_MENU;
-    static final String CLOSE_GAME_MENU = OPEN_MAIN_MENU;
+    static final String MAIN_MENU_TEXT = "Main Menu";
+    static final String GAME_MENU_TEXT = "Game Menu";
 
     GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     TopPanel topPanel;
     MainPanel mainPanel = new MainPanel();
+    GamePanel gamePanel = mainPanel.gamePanel;
 
-    JButton mainMenuToggle;
-    boolean mainMenuOn;
-    JButton gameMenuToggle;
-    boolean gameMenuOn;
+    JButton mainMenuToggle = new JButton(MAIN_MENU_TEXT);
+    JButton gameMenuToggle = new JButton(GAME_MENU_TEXT);
 
     public MainWindow(){
-
-        mainPanel.setDividerLocation(MAIN_MENU_MIN_WIDTH);
-        mainMenuToggle = new JButton(OPEN_MAIN_MENU);
-        mainMenuOn = false;
-
-        mainPanel.gamePanel.setDividerLocation(GAME_MENU_MIN_WIDTH);
-        gameMenuToggle = new JButton(OPEN_GAME_MENU);
-        gameMenuOn = false;
 
         mainMenuToggle.addActionListener(this);
         gameMenuToggle.addActionListener(this);
         topPanel =new TopPanel(mainMenuToggle,gameMenuToggle);
 
-        device.setFullScreenWindow(this);
         setTitle("Main Window");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(topPanel, BorderLayout.NORTH);
         add(mainPanel, BorderLayout.CENTER);
+
+        device.setFullScreenWindow(this);
         setVisible(true);
+        mainMenuToggle.doClick();
 
     }
 
     public void actionPerformed(ActionEvent event){
 
         if(event.getSource()== mainMenuToggle) {
-            if (mainMenuOn) {
-                mainPanel.setDividerLocation(MAIN_MENU_MIN_WIDTH);
-                mainMenuToggle.setText(OPEN_MAIN_MENU);
+            
+            if (isMainMenuOn()) {
+                mainPanel.setDividerLocation(getMainMenuMin());
             } else {
-                mainPanel.setDividerLocation(MAIN_MENU_MAX_WIDTH);
-                mainMenuToggle.setText(CLOSE_MAIN_MENU);
+                mainPanel.setDividerLocation(getMainMenuMax());
             }
-            //closeGameMenu();
-            gameMenuToggle.doClick(); gameMenuToggle.doClick(); //supposed to reset gameMenu size, not working for some reason
-            mainMenuOn = !mainMenuOn;
         }
 
         else if(event.getSource()== gameMenuToggle) {
-            if (gameMenuOn) {
-                mainPanel.gamePanel.setDividerLocation(GAME_MENU_MIN_WIDTH);
-                gameMenuToggle.setText(OPEN_GAME_MENU);
+            if (isGameMenuOn()) {
+                gamePanel.setDividerLocation(getGameMenuMin());
             } else {
-                mainPanel.gamePanel.setDividerLocation(GAME_MENU_MAX_WIDTH);
-                gameMenuToggle.setText(CLOSE_GAME_MENU);
+                gamePanel.setDividerLocation(getGameMenuMax());
             }
-            gameMenuOn = !gameMenuOn;
         }
 
     }
 
-    /*
-    private void closeGameMenu(){
-        mainPanel.gamePanel.setDividerLocation(GAME_MENU_MIN_WIDTH);
-        gameMenuToggle.setText(OPEN_GAME_MENU);
-        gameMenuOn=false;
+    private int getMainMenuMax(){
+        return mainPanel.getMinimumDividerLocation();
     }
-    */
+
+    private double getMainMenuMin(){
+        return 0;
+    }
+
+    private boolean isMainMenuOn(){
+        return mainPanel.getDividerLocation() == getMainMenuMax();
+    }
+
+    private int getGameMenuMax(){
+        return gamePanel.getMaximumDividerLocation();
+    }
+
+    private double getGameMenuMin(){
+        return 1;
+    }
+
+    private boolean isGameMenuOn(){
+        return gamePanel.getDividerLocation() == getGameMenuMax();
+    }
 
 }
