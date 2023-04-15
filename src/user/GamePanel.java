@@ -5,7 +5,7 @@ import javax.swing.*;
 public class GamePanel extends JSplitPane {
 
     JComponent display = new JPanel();
-    JComponent gameMenuPanel = new JPanel();
+    MenuPanel gameMenuPanel = new MenuPanel();
 
     public GamePanel(){
         setOrientation(HORIZONTAL_SPLIT);

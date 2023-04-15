@@ -11,6 +11,8 @@ public class TopPanel extends JPanel{
                     //JComponent quickStatsPanel,
                     JComponent gameMenuToggle
                     ){
+        mainMenuToggle.setBackground(Color.ORANGE);
+        gameMenuToggle.setBackground(Color.ORANGE);
 
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();

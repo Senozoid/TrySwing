@@ -13,15 +13,14 @@ public class MainWindow extends JFrame implements ActionListener {
 
     JButton mainMenuToggle = new JButton("Main Menu");
     JButton gameMenuToggle = new JButton("Game Menu");
+    JButton exitButton = new JButton("Exit");
 
     public MainWindow(){
 
-        mainMenuToggle.addActionListener(this);
-        gameMenuToggle.addActionListener(this);
-        topPanel =new TopPanel(mainMenuToggle,gameMenuToggle);
+        addAllButtons();
 
-        setTitle("Main Window");
-        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //setTitle("Main Window");
+        //setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         add(topPanel, BorderLayout.NORTH);
         add(mainPanel, BorderLayout.CENTER);
 
@@ -49,6 +48,24 @@ public class MainWindow extends JFrame implements ActionListener {
             }
         }
 
+        else if(event.getActionCommand().equalsIgnoreCase("Exit")){
+            System.exit(0);
+        }
+
+    }
+
+    private void addAllButtons(){
+        MenuPanel mainMenu = mainPanel.mainMenuPanel;
+        MenuPanel gameMenu = gamePanel.gameMenuPanel;
+
+        //topPanel
+        mainMenuToggle.addActionListener(this);
+        gameMenuToggle.addActionListener(this);
+        topPanel =new TopPanel(mainMenuToggle,gameMenuToggle);
+
+        //mainMenu
+        exitButton.addActionListener(this);
+        mainMenu.addButton(exitButton);
     }
 
     private int getMainMenuMax(){
