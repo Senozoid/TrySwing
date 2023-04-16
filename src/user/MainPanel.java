@@ -1,8 +1,9 @@
 package user;
 
 import javax.swing.*;
+import java.awt.*;
 
-public class MainPanel extends JSplitPane{
+public class MainPanel extends JSplitPane implements Themed{
 
     MenuPanel mainMenuPanel = new MenuPanel();
     GamePanel gamePanel = new GamePanel();
@@ -14,10 +15,19 @@ public class MainPanel extends JSplitPane{
         setOneTouchExpandable(false);
         setContinuousLayout(true);
 
-        //mainMenuPanel.add(new JLabel("Main Menu Panel"));
-
         setLeftComponent(mainMenuPanel);
         setRightComponent(gamePanel);
+    }
+
+    @Override
+    public void setTheme(boolean light){
+        if(light){
+            setBackground(Color.WHITE);
+        }
+        else{
+            setBackground(Color.BLACK);
+        }
+        gamePanel.setTheme(light);
     }
 
 }

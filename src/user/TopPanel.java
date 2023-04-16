@@ -3,12 +3,15 @@ package user;
 import javax.swing.*;
 import java.awt.*;
 
-public class TopPanel extends JPanel{
+public class TopPanel extends JPanel implements Themed{
 
     GridBagConstraints gbc;
 
+    ThemedLabel titleLabel;
+    HGrid quickStatsBar;
+
     public TopPanel(JComponent mainMenuToggle,
-                    //JComponent quickStatsPanel,
+                    //JComponent quickStatsBar,
                     JComponent gameMenuToggle
                     ){
         mainMenuToggle.setBackground(Color.ORANGE);
@@ -27,18 +30,33 @@ public class TopPanel extends JPanel{
         gbc.anchor=GridBagConstraints.CENTER;//aligns to center of allotted space
         gbc.weightx=1;//allots a portion of any unused space to component
 
-        JLabel titleLabel=new JLabel("TITLE GOES HERE");
+        titleLabel=new ThemedLabel("TITLE GOES HERE");
         add(titleLabel,gbc);
 
         gbc.anchor=GridBagConstraints.LINE_END;//aligns to right of allotted space
         gbc.weightx=0;//takes away any unused space from component
         gbc.gridwidth=GridBagConstraints.RELATIVE;//ends at column before final component
 
-        JComponent quickStatsPanel=new JLabel("money xxx arcana yyy health zzz");
-        add(quickStatsPanel,gbc);
+        quickStatsBar=new HGrid();
+        quickStatsBar.add(new ThemedLabel("money xxx"));
+        quickStatsBar.add(new ThemedLabel("arcana yyy"));
+        quickStatsBar.add(new ThemedLabel("health zzz"));
+        add(quickStatsBar,gbc);
 
         add(gameMenuToggle,gbc);
 
+    }
+
+    @Override
+    public void setTheme(boolean light){
+        if(light){
+            setBackground(Color.WHITE);
+        }
+        else{
+            setBackground(Color.BLACK);
+        }
+        titleLabel.setTheme(light);
+        quickStatsBar.setTheme(light);
     }
 
 }

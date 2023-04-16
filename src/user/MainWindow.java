@@ -4,7 +4,7 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.*;
 
-public class MainWindow extends JFrame implements ActionListener {
+public class MainWindow extends JFrame implements ActionListener,Themed{
 
     GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     TopPanel topPanel;
@@ -13,7 +13,10 @@ public class MainWindow extends JFrame implements ActionListener {
 
     JButton mainMenuToggle = new JButton("Main Menu");
     JButton gameMenuToggle = new JButton("Game Menu");
+    JButton themeToggle = new JButton("Theme");
     JButton exitButton = new JButton("Exit");
+
+    boolean light=false;
 
     public MainWindow(){
 
@@ -24,12 +27,14 @@ public class MainWindow extends JFrame implements ActionListener {
         add(topPanel, BorderLayout.NORTH);
         add(mainPanel, BorderLayout.CENTER);
 
-        this.setUndecorated(true);
+        setUndecorated(true);
         device.setFullScreenWindow(this);
         setVisible(true);
 
+        setTheme(light);
     }
 
+    @Override
     public void actionPerformed(ActionEvent event){
 
         if(event.getSource()== mainMenuToggle) {
@@ -48,6 +53,10 @@ public class MainWindow extends JFrame implements ActionListener {
             }
         }
 
+        else if(event.getActionCommand().equalsIgnoreCase("Theme")){
+            setTheme(!light);
+        }
+
         else if(event.getActionCommand().equalsIgnoreCase("Exit")){
             System.exit(0);
         }
@@ -64,8 +73,14 @@ public class MainWindow extends JFrame implements ActionListener {
         topPanel =new TopPanel(mainMenuToggle,gameMenuToggle);
 
         //mainMenu
+        themeToggle.addActionListener(this);
+        mainMenu.addButton(themeToggle);
         exitButton.addActionListener(this);
         mainMenu.addButton(exitButton);
+        mainMenu.addButton(new JButton("DummyABC"));
+
+        //gameMenu
+        gameMenu.addButton(new JButton("DummyXYZ"));
     }
 
     private int getMainMenuMax(){
@@ -90,6 +105,13 @@ public class MainWindow extends JFrame implements ActionListener {
 
     private boolean isGameMenuOn(){
         return gamePanel.getDividerLocation() <= getGameMenuMax();
+    }
+
+    @Override
+    public void setTheme(boolean light){
+        this.light=light;
+        topPanel.setTheme(light);
+        mainPanel.setTheme(light);
     }
 
 }
