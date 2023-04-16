@@ -1,5 +1,5 @@
 ## Description
-Repo for the GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
+Personal repo for the GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
 ## Structure
 * MainWindow
     * TopPanel
