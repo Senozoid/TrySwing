@@ -1,14 +1,20 @@
 package user;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class MainPanel extends JSplitPane implements Themed{
 
+    //Player pc;
     MenuPanel mainMenuPanel = new MenuPanel();
-    GamePanel gamePanel = new GamePanel();
+    GamePanel gamePanel;
 
-    public MainPanel(){
+    public MainPanel(
+            //Player pc
+            ){
+        //this.pc=pc;
+        gamePanel = new GamePanel(
+                //pc
+                );
         setOrientation(HORIZONTAL_SPLIT);
         setDividerSize(0);
         setResizeWeight(0);
@@ -22,10 +28,10 @@ public class MainPanel extends JSplitPane implements Themed{
     @Override
     public void setTheme(boolean light){
         if(light){
-            setBackground(Color.WHITE);
+            setBackground(Custom.THEMATIC_LIGHT);
         }
         else{
-            setBackground(Color.BLACK);
+            setBackground(Custom.THEMATIC_DARK);
         }
         gamePanel.setTheme(light);
     }

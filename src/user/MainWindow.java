@@ -6,10 +6,11 @@ import java.awt.event.*;
 
 public class MainWindow extends JFrame implements ActionListener,Themed{
 
+    //Player pc;
     GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     TopPanel topPanel;
-    MainPanel mainPanel = new MainPanel();
-    GamePanel gamePanel = mainPanel.gamePanel;
+    MainPanel mainPanel;
+    GamePanel gamePanel;
 
     JButton mainMenuToggle = new JButton("Main Menu");
     JButton gameMenuToggle = new JButton("Game Menu");
@@ -18,7 +19,14 @@ public class MainWindow extends JFrame implements ActionListener,Themed{
 
     boolean light=false;
 
-    public MainWindow(){
+    public MainWindow(
+            //Player pc
+            ){
+        //this.pc = pc;
+        mainPanel = new MainPanel(
+                //pc
+                );
+        gamePanel=mainPanel.gamePanel;
 
         addAllButtons();
 
@@ -70,7 +78,8 @@ public class MainWindow extends JFrame implements ActionListener,Themed{
         //topPanel
         mainMenuToggle.addActionListener(this);
         gameMenuToggle.addActionListener(this);
-        topPanel =new TopPanel(mainMenuToggle,gameMenuToggle);
+        topPanel =new TopPanel(//pc,
+                mainMenuToggle, gameMenuToggle);
 
         //mainMenu
         themeToggle.addActionListener(this);

@@ -4,18 +4,23 @@ import javax.swing.*;
 
 public class GamePanel extends JSplitPane implements Themed{
 
-    JComponent display = new JPanel();
+    //Player pc;
+    Display display;
     MenuPanel gameMenuPanel = new MenuPanel();
 
-    public GamePanel(){
+    public GamePanel(
+            //Player pc
+            ){
+        //this.pc=pc;
+        display = new Display(
+                //pc
+                );
         setOpaque(false);
         setOrientation(HORIZONTAL_SPLIT);
         setDividerSize(1);
         setResizeWeight(1);
         setOneTouchExpandable(false);
         setContinuousLayout(true);
-
-        display.add(new JLabel("Area to display page text and option buttons"));
 
         setLeftComponent(display);
         setRightComponent(gameMenuPanel);
@@ -24,6 +29,6 @@ public class GamePanel extends JSplitPane implements Themed{
 
     @Override
     public void setTheme(boolean light) {
-        //to be implemented soon
+        display.setTheme(light);
     }
 }

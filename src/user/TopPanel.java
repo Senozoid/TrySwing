@@ -14,8 +14,8 @@ public class TopPanel extends JPanel implements Themed{
                     //JComponent quickStatsBar,
                     JComponent gameMenuToggle
                     ){
-        mainMenuToggle.setBackground(Color.ORANGE);
-        gameMenuToggle.setBackground(Color.ORANGE);
+        mainMenuToggle.setBackground(Custom.UI);
+        gameMenuToggle.setBackground(Custom.UI);
 
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -50,10 +50,10 @@ public class TopPanel extends JPanel implements Themed{
     @Override
     public void setTheme(boolean light){
         if(light){
-            setBackground(Color.WHITE);
+            setBackground(Custom.THEMATIC_LIGHT);
         }
         else{
-            setBackground(Color.BLACK);
+            setBackground(Custom.THEMATIC_DARK);
         }
         titleLabel.setTheme(light);
         quickStatsBar.setTheme(light);

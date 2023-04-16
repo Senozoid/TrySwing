@@ -1,7 +1,6 @@
 package user;
 
 import javax.swing.*;
-import java.awt.*;
 
 public class ThemedLabel extends JLabel implements Themed{
 
@@ -23,10 +22,10 @@ public class ThemedLabel extends JLabel implements Themed{
     @Override
     public void setTheme(boolean light){
         if(light){
-            setForeground(Color.BLACK);
+            setForeground(Custom.THEMATIC_DARK);
         }
         else{
-            setForeground(Color.WHITE);
+            setForeground(Custom.THEMATIC_LIGHT);
         }
     }
 

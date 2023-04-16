@@ -2,7 +2,6 @@ package user;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
 
 public class MenuPanel extends JPanel{
 
@@ -20,7 +19,7 @@ public class MenuPanel extends JPanel{
     }
 
     public void addButton(JButton button){
-        button.setBackground(Color.ORANGE);
+        button.setBackground(Custom.UI);
         add(button,gbc);
     }
 
