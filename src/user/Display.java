@@ -3,7 +3,7 @@ package user;
 import javax.swing.*;
 import java.awt.*;
 import java.io.*;
-import java.util.Scanner;
+import java.util.*;
 
 public class Display extends JPanel implements Themed {
 
@@ -15,12 +15,11 @@ public class Display extends JPanel implements Themed {
         setOpaque(false);
 
         try {
-            customFont=Font.createFont(Font.TRUETYPE_FONT,
-                    new File("fonts/pelagiad/Pelagiad.ttf")).deriveFont(22F);
+            customFont=Font.createFont(Font.TRUETYPE_FONT, new File("fonts/pelagiad/Pelagiad.ttf")).deriveFont(24F);
             Custom.GRAPHICS_ENV.registerFont(customFont);
             textArea.setFont(customFont);
         } catch (FontFormatException | IOException e) {
-            textArea.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+            textArea.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,20));
         }
 
         textArea.setLineWrap(true);

@@ -7,7 +7,7 @@ public class TopPanel extends JPanel implements Themed{
 
     GridBagConstraints gbc;
 
-    ThemedLabel titleLabel;
+    JLabel titleLabel = new JLabel("Zenerian Chronicles: Shadow of Doom");
     HGrid quickStatsBar;
 
     public TopPanel(JComponent mainMenuToggle,
@@ -26,7 +26,8 @@ public class TopPanel extends JPanel implements Themed{
 
         gbc.anchor=GridBagConstraints.CENTER;//aligns to center of allotted space
         gbc.weightx=1;//allots a portion of any unused space to component
-        titleLabel=new ThemedLabel("TITLE GOES HERE");
+        titleLabel.setOpaque(false);
+        titleLabel.setForeground(Color.RED);
         add(titleLabel,gbc);
 
         gbc.anchor=GridBagConstraints.LINE_END;//aligns to right of allotted space
@@ -51,7 +52,6 @@ public class TopPanel extends JPanel implements Themed{
         else{
             setBackground(Custom.THEMATIC_DARK);
         }
-        titleLabel.setTheme(light);
         quickStatsBar.setTheme(light);
     }
 

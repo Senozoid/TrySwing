@@ -2,7 +2,7 @@ package user;
 
 import javax.swing.*;
 import java.awt.*;
-import java.util.ArrayList;
+import java.util.*;
 
 public class HGrid extends JPanel implements Themed{
 

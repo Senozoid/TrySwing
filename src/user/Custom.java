@@ -1,7 +1,7 @@
 package user;
 
 import java.awt.*;
-import java.io.File;
+import java.io.*;
 
 public class Custom {
     public static final GraphicsEnvironment GRAPHICS_ENV = GraphicsEnvironment.getLocalGraphicsEnvironment();

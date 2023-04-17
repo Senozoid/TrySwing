@@ -17,7 +17,7 @@ public class GamePanel extends JSplitPane implements Themed{
                 );
         setOpaque(false);
         setOrientation(HORIZONTAL_SPLIT);
-        setDividerSize(1);
+        setDividerSize(0);
         setResizeWeight(1);
         setOneTouchExpandable(false);
         setContinuousLayout(true);
