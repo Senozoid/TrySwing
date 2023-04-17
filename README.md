@@ -1,5 +1,5 @@
 ## Description
-Personal repo for the GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
+Personal repo to experiment with Swing, for GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
 
 ## Structure
 * mainWindow
