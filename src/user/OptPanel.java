@@ -6,7 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-public class OptPanel extends JPanel implements ActionListener,Themed{
+public class OptPanel extends JPanel implements ActionListener{
 
     //Player pc;
     boolean light = false;
@@ -20,11 +20,11 @@ public class OptPanel extends JPanel implements ActionListener,Themed{
         setOpaque(false);
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
-        gbc.weighty=0;
-        gbc.ipady=5;
-        gbc.fill=GridBagConstraints.HORIZONTAL;
         gbc.gridx=0;
-        gbc.gridy=GridBagConstraints.RELATIVE;
+        gbc.weightx=1;
+        gbc.fill=GridBagConstraints.HORIZONTAL;
+        gbc.ipady=8;
+        gbc.insets=new Insets(1,0,1,0);
         optButtonList=new ArrayList<>();
     }
 
@@ -34,7 +34,8 @@ public class OptPanel extends JPanel implements ActionListener,Themed{
         opt.addActionListener(this);
 
         optButtonList.add(opt);
-        setTheme(light);
+        opt.setBackground(Color.RED);
+        opt.setForeground(Color.WHITE);
         add(opt,gbc);
     }
 
@@ -49,22 +50,6 @@ public class OptPanel extends JPanel implements ActionListener,Themed{
     public void actionPerformed(ActionEvent event) {
         //pc.setChoice(event.getActionCommand());
         clear();
-    }
-
-    @Override
-    public void setTheme(boolean light) {
-        if (light) {
-            for (JButton button : optButtonList) {
-                button.setBackground(Custom.THEMATIC_LIGHT);
-                button.setForeground(Custom.THEMATIC_DARK);
-            }
-        } else {
-            for (JButton button : optButtonList) {
-                button.setBackground(Custom.THEMATIC_DARK);
-                button.setForeground(Custom.THEMATIC_LIGHT);
-            }
-        }
-        this.light=light;
     }
 
 }

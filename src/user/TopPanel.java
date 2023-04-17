@@ -21,15 +21,11 @@ public class TopPanel extends JPanel implements Themed{
         gbc = new GridBagConstraints();
         gbc.gridy=0;//starts at first row
 
-        gbc.gridx=0;//starts at first column
         gbc.anchor=GridBagConstraints.LINE_START;//aligns to left of allotted space
-
         add(mainMenuToggle,gbc);//button that opens or closes main menu
 
-        gbc.gridx=GridBagConstraints.RELATIVE;//starts at column next to previous component
         gbc.anchor=GridBagConstraints.CENTER;//aligns to center of allotted space
         gbc.weightx=1;//allots a portion of any unused space to component
-
         titleLabel=new ThemedLabel("TITLE GOES HERE");
         add(titleLabel,gbc);
 

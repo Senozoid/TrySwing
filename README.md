@@ -1,15 +1,17 @@
 ## Description
 Personal repo for the GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
-## Structure
-* MainWindow
-    * TopPanel
-    * MainPanel
-      * MainMenuPanel
-      * GamePanel
-        * Display
-        * GameMenuPanel
-        
 
-## Issue type: Glitch
-### Description
-The game menu may open while toggling the main menu.
+## Structure
+* mainWindow
+    * topPanel
+    * mainPanel
+      * mainMenuPanel (Class: MenuPanel)
+      * gamePanel
+        * display
+          * scroller
+            * textArea
+          * optPanel
+        * gameMenuPanel (Class: MenuPanel)
+
+## Minor Issues
+1. The game menu may open while toggling the main menu.

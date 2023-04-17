@@ -11,11 +11,11 @@ public class MenuPanel extends JPanel{
         setOpaque(false);
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
-        gbc.weighty=0;
-        gbc.ipady=5;
-        gbc.fill=GridBagConstraints.HORIZONTAL;
         gbc.gridx=0;
-        gbc.gridy=GridBagConstraints.RELATIVE;
+        gbc.weightx=1;
+        gbc.fill=GridBagConstraints.HORIZONTAL;
+        gbc.ipady=8;
+        gbc.insets=new Insets(1,0,1,0);
     }
 
     public void addButton(JButton button){
