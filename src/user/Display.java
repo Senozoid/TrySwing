@@ -2,18 +2,27 @@ package user;
 
 import javax.swing.*;
 import java.awt.*;
-import java.io.FileNotFoundException;
+import java.io.*;
 import java.util.Scanner;
 
 public class Display extends JPanel implements Themed {
 
+    Font customFont;
     JTextArea textArea = new JTextArea();
     OptPanel optPanel = new OptPanel();
 
     public Display(){
         setOpaque(false);
 
-        textArea.setFont(new Font("Consolas",Font.PLAIN,20));
+        try {
+            customFont=Font.createFont(Font.TRUETYPE_FONT,
+                    new File("fonts/pelagiad/Pelagiad.ttf")).deriveFont(22F);
+            Custom.GRAPHICS_ENV.registerFont(customFont);
+            textArea.setFont(customFont);
+        } catch (FontFormatException | IOException e) {
+            textArea.setFont(new Font(Font.SERIF,Font.PLAIN,20));
+        }
+
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
 

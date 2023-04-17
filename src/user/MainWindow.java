@@ -7,7 +7,6 @@ import java.awt.event.*;
 public class MainWindow extends JFrame implements ActionListener,Themed{
 
     //Player pc;
-    GraphicsDevice device = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice();
     TopPanel topPanel;
     MainPanel mainPanel;
     GamePanel gamePanel;
@@ -36,7 +35,7 @@ public class MainWindow extends JFrame implements ActionListener,Themed{
         add(mainPanel, BorderLayout.CENTER);
 
         setUndecorated(true);
-        device.setFullScreenWindow(this);
+        Custom.SCREEN.setFullScreenWindow(this);
         setVisible(true);
 
         setTheme(light);
