@@ -1,17 +1,18 @@
 ## Description
-Personal repo for the GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
+Temporary personal repo to experiment with Swing, for GUI elements used in a [game](https://github.com/Senozoid/ZenChron) (currently private) I am making.
 
 ## Structure
+_(if class is not mentioned, it's homonymous)_
 * mainWindow
     * topPanel
     * mainPanel
-      * mainMenuPanel (Class: MenuPanel)
+      * mainMenuPanel _(class: MenuPanel)_
       * gamePanel
         * display
-          * scroller
-            * textArea
+          * scroller _(class: JScrollPane)_
+            * textArea _(class: JTextArea)_
           * optPanel
-        * gameMenuPanel (Class: MenuPanel)
+        * gameMenuPanel _(class: MenuPanel)_
 
 ## Minor Issues
 1. The game menu may open while toggling the main menu.
