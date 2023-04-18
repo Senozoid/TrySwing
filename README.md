@@ -16,3 +16,6 @@ _(if class is not mentioned, it's homonymous)_
 
 ## Minor Issues
 1. The game menu may open while toggling the main menu.
+
+## Screenshots
+![Early stage example screenshot](pics/EarlyStageExampleScreen.png)
