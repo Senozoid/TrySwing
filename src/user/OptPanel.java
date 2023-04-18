@@ -8,14 +8,16 @@ import java.util.*;
 public class OptPanel extends JPanel implements ActionListener{
 
     //Player pc;
+    Custom cus;
     boolean light = false;
     GridBagConstraints gbc;
     ArrayList<JButton> optButtonList;
 
-    public OptPanel(
+    public OptPanel(Custom cus
             //Player pc
             ){
         //this.pc = pc;
+        this.cus=cus;
         setOpaque(false);
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -33,6 +35,7 @@ public class OptPanel extends JPanel implements ActionListener{
         opt.addActionListener(this);
 
         optButtonList.add(opt);
+        opt.setFont(cus.getUIFont());
         opt.setBackground(Color.RED);
         opt.setForeground(Color.WHITE);
         add(opt,gbc);

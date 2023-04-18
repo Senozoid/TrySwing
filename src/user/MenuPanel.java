@@ -5,9 +5,11 @@ import java.awt.*;
 
 public class MenuPanel extends JPanel{
 
+    Custom cus;
     GridBagConstraints gbc;
 
-    public MenuPanel(){
+    public MenuPanel(Custom cus){
+        this.cus = cus;
         setOpaque(false);
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -19,7 +21,8 @@ public class MenuPanel extends JPanel{
     }
 
     public void addButton(JButton button){
-        button.setBackground(Custom.UI);
+        button.setBackground(cus.UI);
+        button.setFont(cus.getUIFont());
         add(button,gbc);
     }
 

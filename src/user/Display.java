@@ -5,27 +5,26 @@ import java.awt.*;
 import java.io.*;
 import java.util.*;
 
-public class Display extends JPanel implements Themed {
+public class Display extends JPanel implements Themed{
 
+    Custom cus;
     Font customFont;
     JTextArea textArea = new JTextArea();
-    OptPanel optPanel = new OptPanel();
+    OptPanel optPanel;
 
-    public Display(){
+    public Display(Custom cus){
+        this.cus = cus;
         setOpaque(false);
 
-        try {
-            customFont=Font.createFont(Font.TRUETYPE_FONT, new File("fonts/pelagiad/Pelagiad.ttf")).deriveFont(24F);
-            Custom.GRAPHICS_ENV.registerFont(customFont);
-            textArea.setFont(customFont);
-        } catch (FontFormatException | IOException e) {
-            textArea.setFont(new Font(Font.SANS_SERIF,Font.PLAIN,20));
-        }
+        optPanel = new OptPanel(cus);
 
+        textArea.setFont(cus.getTextFont());
         textArea.setLineWrap(true);
         textArea.setWrapStyleWord(true);
+        textArea.setOpaque(false);
 
         JScrollPane scroller=new JScrollPane(textArea);
+        scroller.getViewport().setOpaque(false);
         scroller.setOpaque(false);
 
         GridBagConstraints gbc = new GridBagConstraints();
@@ -50,30 +49,28 @@ public class Display extends JPanel implements Themed {
     private void refreshText(){
         Scanner textDisplay = null;
         try {
-            textDisplay = new Scanner(Custom.currPage);
+            textDisplay = new Scanner(cus.CURR_PAGE);
             textArea.setText(null);
             while(textDisplay.hasNextLine()) textArea.append(textDisplay.nextLine()+"\n");
         } catch (FileNotFoundException e) {
-            textArea.setText("File Not Found: "+Custom.currPage);
+            textArea.setText("File Not Found: "+cus.CURR_PAGE);
         }
     }
 
     private void refreshOptions(){
         //to be changed after testing
         optPanel.clear();
-        optPanel.addOpt("dummy1","Go through the door");
-        optPanel.addOpt("dummy2","Pick up the sword");
+        optPanel.addOpt("dummy1","Attempt to pick up the sword");
+        optPanel.addOpt("dummy2","Go around the sword and open the door");
     }
 
     @Override
     public void setTheme(boolean light) {
         if(light){
-            textArea.setBackground(Custom.THEMATIC_LIGHT);
-            textArea.setForeground(Custom.THEMATIC_DARK);
+            textArea.setForeground(cus.THEMATIC_DARK);
         }
         else{
-            textArea.setBackground(Custom.THEMATIC_DARK);
-            textArea.setForeground(Custom.THEMATIC_LIGHT);
+            textArea.setForeground(cus.THEMATIC_LIGHT);
         }
     }
 

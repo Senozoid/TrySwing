@@ -4,28 +4,31 @@ import javax.swing.*;
 
 public class ThemedLabel extends JLabel implements Themed{
 
-    public ThemedLabel(Icon icon){
-        super(icon);
-        setOpaque(false);
-    }
+    Custom cus;
 
-    public ThemedLabel(String text) {
+    public ThemedLabel(Custom cus,String text) {
         super(text);
-        setOpaque(false);
+        mandate(cus);
     }
 
-    public ThemedLabel(Icon icon, String text){
+    public ThemedLabel(Custom cus, Icon icon, String text){
         super(icon); setText(text);
+        mandate(cus);
+    }
+
+    private void mandate(Custom cus){
+        this.cus=cus;
+        setFont(cus.getUIFont());
         setOpaque(false);
     }
 
     @Override
     public void setTheme(boolean light){
         if(light){
-            setForeground(Custom.THEMATIC_DARK);
+            setForeground(cus.THEMATIC_DARK);
         }
         else{
-            setForeground(Custom.THEMATIC_LIGHT);
+            setForeground(cus.THEMATIC_LIGHT);
         }
     }
 

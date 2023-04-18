@@ -5,17 +5,18 @@ import java.awt.*;
 
 public class TopPanel extends JPanel implements Themed{
 
+    Custom cus;
     GridBagConstraints gbc;
 
     JLabel titleLabel = new JLabel("Zenerian Chronicles: Shadow of Doom");
     HGrid quickStatsBar;
 
-    public TopPanel(JComponent mainMenuToggle,
-                    //JComponent quickStatsBar,
-                    JComponent gameMenuToggle
-                    ){
-        mainMenuToggle.setBackground(Custom.UI);
-        gameMenuToggle.setBackground(Custom.UI);
+    public TopPanel(Custom cus, JButton mainMenuToggle, JButton gameMenuToggle){
+        this.cus=cus;
+        mainMenuToggle.setContentAreaFilled(false);
+        mainMenuToggle.setBorderPainted(false);
+        gameMenuToggle.setContentAreaFilled(false);
+        gameMenuToggle.setBorderPainted(false);
 
         setLayout(new GridBagLayout());
         gbc = new GridBagConstraints();
@@ -28,6 +29,7 @@ public class TopPanel extends JPanel implements Themed{
         gbc.weightx=1;//allots a portion of any unused space to component
         titleLabel.setOpaque(false);
         titleLabel.setForeground(Color.RED);
+        titleLabel.setFont(cus.getUIFont());
         add(titleLabel,gbc);
 
         gbc.anchor=GridBagConstraints.LINE_END;//aligns to right of allotted space
@@ -35,9 +37,9 @@ public class TopPanel extends JPanel implements Themed{
         gbc.gridwidth=GridBagConstraints.RELATIVE;//ends at column before final component
 
         quickStatsBar=new HGrid();
-        quickStatsBar.add(new ThemedLabel("money xxx"));
-        quickStatsBar.add(new ThemedLabel("arcana yyy"));
-        quickStatsBar.add(new ThemedLabel("health zzz"));
+        quickStatsBar.add(new ThemedLabel(cus,"money xxx"));
+        quickStatsBar.add(new ThemedLabel(cus,"arcana yyy"));
+        quickStatsBar.add(new ThemedLabel(cus,"health zzz"));
         add(quickStatsBar,gbc);
 
         add(gameMenuToggle,gbc);
@@ -47,10 +49,10 @@ public class TopPanel extends JPanel implements Themed{
     @Override
     public void setTheme(boolean light){
         if(light){
-            setBackground(Custom.THEMATIC_LIGHT);
+            setBackground(cus.THEMATIC_LIGHT);
         }
         else{
-            setBackground(Custom.THEMATIC_DARK);
+            setBackground(cus.THEMATIC_DARK);
         }
         quickStatsBar.setTheme(light);
     }

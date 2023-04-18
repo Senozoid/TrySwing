@@ -5,16 +5,19 @@ import javax.swing.*;
 public class GamePanel extends JSplitPane implements Themed{
 
     //Player pc;
+    Custom cus;
     Display display;
-    MenuPanel gameMenuPanel = new MenuPanel();
+    MenuPanel gameMenuPanel;
 
-    public GamePanel(
+    public GamePanel(Custom cus
             //Player pc
             ){
         //this.pc=pc;
-        display = new Display(
+        this.cus=cus;
+        display = new Display(cus
                 //pc
                 );
+        gameMenuPanel = new MenuPanel(cus);
         setOpaque(false);
         setOrientation(HORIZONTAL_SPLIT);
         setDividerSize(0);

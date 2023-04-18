@@ -7,22 +7,29 @@ import java.awt.event.*;
 public class MainWindow extends JFrame implements ActionListener,Themed{
 
     //Player pc;
+    Custom cus;
     TopPanel topPanel;
     MainPanel mainPanel;
     GamePanel gamePanel;
 
-    JButton mainMenuToggle = new JButton("Main Menu");
-    JButton gameMenuToggle = new JButton("Game Menu");
+    JButton mainMenuToggle;
+    JButton gameMenuToggle;
+
     JButton themeToggle = new JButton("Theme");
     JButton exitButton = new JButton("Exit");
 
     boolean light=false;
 
-    public MainWindow(
+    public MainWindow(Custom cus
             //Player pc
             ){
         //this.pc = pc;
-        mainPanel = new MainPanel(
+        this.cus = cus;
+
+        mainMenuToggle = new JButton(cus.mainMenuToggleIcon);
+        gameMenuToggle = new JButton(cus.gameMenuToggleIcon);
+
+        mainPanel = new MainPanel(cus
                 //pc
                 );
         gamePanel=mainPanel.gamePanel;
@@ -35,7 +42,7 @@ public class MainWindow extends JFrame implements ActionListener,Themed{
         add(mainPanel, BorderLayout.CENTER);
 
         setUndecorated(true);
-        Custom.SCREEN.setFullScreenWindow(this);
+        cus.SCREEN.setFullScreenWindow(this);
         setVisible(true);
 
         setTheme(light);
@@ -78,7 +85,7 @@ public class MainWindow extends JFrame implements ActionListener,Themed{
         mainMenuToggle.addActionListener(this);
         gameMenuToggle.addActionListener(this);
         topPanel =new TopPanel(//pc,
-                mainMenuToggle, gameMenuToggle);
+                cus, mainMenuToggle, gameMenuToggle);
 
         //mainMenu
         themeToggle.addActionListener(this);
