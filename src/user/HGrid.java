@@ -25,6 +25,8 @@ public class HGrid extends JPanel implements Themed{
         labelList.add(label);
     }
 
+    //add a refresh method?
+
     @Override
     public void setTheme(boolean light){
         for (ThemedLabel label : labelList) {

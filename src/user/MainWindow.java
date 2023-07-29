@@ -8,9 +8,9 @@ public class MainWindow extends JFrame implements ActionListener,Themed{
 
     //Player pc;
     Custom cus;
-    TopPanel topPanel;
+    public TopPanel topPanel; //needs to be refreshed, may need to be public
     MainPanel mainPanel;
-    GamePanel gamePanel;
+    public GamePanel gamePanel; //needs to be refreshed, may need to be public
 
     JButton mainMenuToggle;
     JButton gameMenuToggle;

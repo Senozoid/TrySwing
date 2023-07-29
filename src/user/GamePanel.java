@@ -6,7 +6,7 @@ public class GamePanel extends JSplitPane implements Themed{
 
     //Player pc;
     Custom cus;
-    Display display;
+    public Display display; //needs to be refreshed, may need to be public
     MenuPanel gameMenuPanel;
 
     public GamePanel(Custom cus

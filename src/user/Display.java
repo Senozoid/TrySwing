@@ -44,6 +44,7 @@ public class Display extends JPanel implements Themed{
     public void refresh(){
         refreshText();
         refreshOptions();
+        //reapply theme?
     }
 
     private void refreshText(){

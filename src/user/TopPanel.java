@@ -9,7 +9,7 @@ public class TopPanel extends JPanel implements Themed{
     GridBagConstraints gbc;
 
     JLabel titleLabel = new JLabel("Zenerian Chronicles: Shadow of Doom");
-    HGrid quickStatsBar;
+    public HGrid quickStatsBar; //needs to be refreshed, may need to be public
 
     public TopPanel(Custom cus, JButton mainMenuToggle, JButton gameMenuToggle){
         this.cus=cus;
