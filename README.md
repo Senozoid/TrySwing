@@ -18,4 +18,7 @@ _(if class is not mentioned, it's homonymous)_
 1. The game menu may open while toggling the main menu.
 
 ## Screenshots
+Certain ISPs (like Jio) block _raw.githubusercontent.com_ for some reason. This causes the images to not load. \
+If you have that problem, click on the alt-text to view individual images, or use a VPN to bypass the block.
+
 ![Early stage example screenshot](pics/EarlyStageExampleScreen.png)
